@@ -1,7 +1,5 @@
 ## This exercise intents to build a function to rapidly inverse matrix
 
-## This function creates a special "matrix" object that can cache its inverse
-
 ## setting the value of the Matrix
 ## getting the value of the Matrix
 ## setting the value of the Matrix
