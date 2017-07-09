@@ -1,15 +1,41 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This exercise intents to build a function to rapidly inverse matrix
 
-## Write a short comment describing this function
+## This function creates a special "matrix" object that can cache its inverse
 
-makeCacheMatrix <- function(x = matrix()) {
+## setting the value of the Matrix
+## getting the value of the Matrix
+## setting the value of the Matrix
+## getting the value of the Matrix
 
-}
+  makeCacheMatrix <- function(x = matrix()) {
+      
+      invm <- NULL
+      setm <- function(N) {
+      x <- N
+      invm <- NULL
+      }
+
+      getm <- function() x
+      setinverse <- function(inverse) invm <- inverse
+      getinverse <- function() invm
+      
+      list(setm=setm,getm=getm,setinverse=setinverse,getinverse=getinverse)
+  
+  }
 
 
-## Write a short comment describing this function
+## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. 
+## If the inverse has already been calculated (and the matrix has not changed), 
+## then the cachesolve should retrieve the inverse from the cache
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
+  cacheSolve <- function(x, ...) {
+    invm <- x&getinverse()
+    if(!is.null(invm)) {
+      return(invm)
+          }
+    
+    datainvm <- x$getm()
+    invm <- solve(datainvm)
+    x$setinverse(invm)
+    invm
+  }
